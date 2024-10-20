@@ -7,7 +7,11 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+<<<<<<< HEAD
   
+=======
+ // darkMode: "class",
+>>>>>>> 5867d01141a9fc73417efe5230654576aee86cdb
   theme: {
     container: {
       center: true,
