@@ -35,6 +35,34 @@ const Header = () => {
     }
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "ZeroCostEdu",
+    url: "https://zerocostedu.org/",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "{search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  // Organization Schema JSON-LD
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ZeroCostEdu",
+    alternateName: "ZeroCostEdu.org",
+    url: "https://zerocostedu.org/",
+    logo: "https://zerocostedu.org/images/logo/logo-2.svg",
+    sameAs: [
+      "https://x.com/zerocostedu",
+      "https://www.instagram.com/zerocostedu",
+      "https://www.youtube.com/@lzerocostedu",
+      "https://zerocostedu.org/",
+    ],
+  };
+
   const usePathName = usePathname();
 
   return (
@@ -46,6 +74,22 @@ const Header = () => {
             : "absolute bg-transparent"
         }`}
       >
+        <section>
+          {/* Add Website Schema JSON-LD to your page */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          />
+
+          {/* Add Organization Schema JSON-LD to your page */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+          />
+
+          {/* ... other components or content */}
+        </section>
+
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
             <div className="w-60 max-w-full px-4 xl:mr-12">
@@ -97,7 +141,7 @@ const Header = () => {
                 </button>
                 <nav
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 dark:border-body-color/20 dark:bg-dark ${
                     navbarOpen
                       ? "visibility top-full opacity-100"
                       : "invisible top-[120%] opacity-0"
@@ -121,7 +165,7 @@ const Header = () => {
                           <>
                             <p
                               onClick={() => handleSubmenu(index)}
-                              className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:text-primary dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
+                              className="flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 dark:text-white/70 dark:group-hover:text-white"
                             >
                               {menuItem.title}
                               <span className="pl-3">
@@ -136,7 +180,7 @@ const Header = () => {
                               </span>
                             </p>
                             <div
-                              className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
+                              className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full dark:bg-dark ${
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
@@ -144,7 +188,7 @@ const Header = () => {
                                 <Link
                                   href={submenuItem.path}
                                   key={index}
-                                  className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+                                  className="block rounded py-2.5 text-sm text-dark hover:text-primary lg:px-3 dark:text-white/70 dark:hover:text-white"
                                 >
                                   {submenuItem.title}
                                 </Link>

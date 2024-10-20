@@ -4,15 +4,18 @@ import Contact from "@/components/Contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Page",
-  description: "This is Contact Page for Startup Nextjs Template",
+  title: "Contact",
+  description: "Want to contribute? Contact us",
   // other metadata
 };
 
 const ContactPage = () => {
   return (
     <>
-      <Breadcrumb pageName="Contact Page" description="" />
+      <Breadcrumb
+        pageName="Contact Page"
+        description="Want to contribute? Contact us"
+      />
 
       <Contact />
     </>
