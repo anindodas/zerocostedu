@@ -2,7 +2,6 @@ import { GetServerSideProps } from "next";
 import { getServerSideSitemap, ISitemapField } from "next-sitemap";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  // Construct your sitemap fields array
   const fields: ISitemapField[] = [
     {
       loc: "https://zerocostedu.org/", // URL of the page
@@ -13,15 +12,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     // Add more fields as needed
   ];
 
-  // Pass the fields array to getServerSideSitemap
-  const sitemap = await getServerSideSitemap(fields, ctx); // Corrected argument order
+  const sitemap = await getServerSideSitemap(ctx, fields);
 
-  // Return the sitemap as a response
   ctx.res.setHeader("Content-Type", "text/xml");
   ctx.res.write(sitemap);
   ctx.res.end();
 
   return {
-    props: {}, // Return an empty props object as this is a sitemap
+    props: {},
   };
 };
