@@ -7,9 +7,9 @@ import Testimonials from "@/components/Testimonials";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ZeroCostEdu - Mission to make Education Free Of Cost",
+  title: "ZeroCostEdu - Mission To Make Education Free Of Cost",
   description:
-    "ZeroCostEdu is a nonprofit organization for free educational resources, offering all the essential tools, courses, and materials needed to provide quality for free.",
+    "ZeroCostEdu is a nonprofit committed to accessible education, offering a full suite of resources, courses, and tools for quality learning without cost.",
   // other metadata
 };
 
